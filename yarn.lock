@@ -4754,6 +4754,14 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
+fm93-vue-template@^0.1.4:
+  version "0.1.4"
+  resolved "http://verdaccio.server.1045fm.cn/fm93-vue-template/-/fm93-vue-template-0.1.4.tgz#4a36ae7f8a24e15c982340c14044064db0a2022c"
+  integrity sha512-7HOrhSGrCVKPzjxaUUz/+7gaMBUzCu1dLJS/FOv24RlVAoDhPH0s+yo3W3ZHtqRHmzIPL3F5TvQ8abvO3lbLYA==
+  dependencies:
+    core-js "^3.6.4"
+    vue "^2.6.11"
+
 follow-redirects@1.5.10:
   version "1.5.10"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
@@ -11104,14 +11112,6 @@ vue-loader@^15.9.1:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
-
-vue-loading-page@^0.1.2:
-  version "0.1.2"
-  resolved "http://verdaccio.server.1045fm.cn/vue-loading-page/-/vue-loading-page-0.1.2.tgz#beee6a16087580027f7fee6083ca084f41d49e1b"
-  integrity sha512-DB5U3/vQ6LyQWp8pU8FLfEq59dYfeMPcKF197fFtBm0BnsxiXD7j/MEAW1G+75/cD7L6OsA7TtEB/XMunFGPGw==
-  dependencies:
-    core-js "^3.6.4"
-    vue "^2.6.11"
 
 vue-router@^3.1.6:
   version "3.1.6"
