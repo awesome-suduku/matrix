@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-04-07 20:08:36
+ * @LastEditTime: 2020-04-08 23:16:23
  -->
 <template>
   <div id="app">
@@ -22,5 +22,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 100%;
+  height: 100%;
 }
 </style>
