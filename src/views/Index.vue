@@ -4,10 +4,10 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-04-07 23:34:15
+ * @LastEditTime: 2020-04-08 09:22:47
  -->
 <template>
-  <loading v-if="!this.is_load"></loading>
+  <loading v-if="!this.is_load" :color="'pink'"></loading>
 </template>
 
 <script>
