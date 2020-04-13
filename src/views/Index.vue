@@ -4,24 +4,24 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-04-08 09:22:47
+ * @LastEditTime: 2020-04-08 23:15:37
  -->
 <template>
-  <loading v-if="!this.is_load" :color="'pink'"></loading>
+  <tao-Loading v-if="!this.is_ready" :color="'pink'"></tao-Loading>
 </template>
 
 <script>
-import loading from "fm93-vue-template";
+import { taoLoading } from "fm93-vue-template";
 export default {
   name: "Index",
-  components: { loading },
+  components: { taoLoading },
   data: function() {
     return {
-      is_load: false
+      is_ready: false
     };
   },
   created: function() {
-    this.is_load = false;
+    // this.is_ready = true;
   }
 };
 </script>
