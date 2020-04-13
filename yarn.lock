@@ -4754,10 +4754,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-fm93-vue-template@^0.2.0:
-  version "0.2.0"
-  resolved "http://verdaccio.server.1045fm.cn/fm93-vue-template/-/fm93-vue-template-0.2.0.tgz#0f24c2c46ba7515194e3fd1dfd2ad6328f3aa643"
-  integrity sha512-jEfMHBctCEEbzM3Jz4trSWqTWpnXD/SPu/5ei8B7SvmHGAVHB6woZScX4eVZPFvC1GSzy1GMuvTFuMJ0JoE5aA==
+fm93-vue-template@^1.0.3:
+  version "1.0.3"
+  resolved "http://verdaccio.server.1045fm.cn/fm93-vue-template/-/fm93-vue-template-1.0.3.tgz#2003ccd6d7fc21a6e92e0603ca89be05d05b851e"
+  integrity sha512-rO8iId1wCuKBXK0VpQhK6Fj9C4GhsK/w1wtTfGw0/KCevSohoWukXhuY4+qxEwjiBUSZM9p05RzjIBXFNpN/Yw==
   dependencies:
     core-js "^3.6.4"
     vue "^2.6.11"
@@ -11149,6 +11149,13 @@ vue-video-player@^5.0.2:
     videojs-contrib-hls "^5.12.2"
     videojs-flash "^2.1.0"
     videojs-hotkeys "^0.2.20"
+
+vue-wx-tools@^0.1.1:
+  version "0.1.1"
+  resolved "http://verdaccio.server.1045fm.cn/vue-wx-tools/-/vue-wx-tools-0.1.1.tgz#232e744591ed12955877777ea30dca8436006652"
+  integrity sha512-mk6rl5s/yNlTtM9cjYzdkAq1msSp5d9kF4gVsxchTwrBvrtvxcZnVWQlkIx5Q1u+1zsv+hZHap0CUD83e5DFEg==
+  dependencies:
+    axios "^0.19.2"
 
 vue@^2.6.11:
   version "2.6.11"
