@@ -4,21 +4,19 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-04-13 10:54:10
+ * @LastEditTime: 2020-04-29 17:22:01
  -->
 <template>
-  <tao-Page>
-    <tao-Loading v-if="!this.is_ready" :color="'pink'"></tao-Loading>
-    <tao-Page v-show="false"></tao-Page>
-  </tao-Page>
+  <tao-page>
+    <tao-loading v-if="!this.is_ready" :color="'pink'"></tao-loading>
+    <tao-page v-show="false"></tao-page>
+  </tao-page>
 </template>
 
 <script>
-import { taoLoading, taoPage } from "fm93-vue-template";
 import wxHandler from "vue-wx-tools";
 export default {
   name: "Index",
-  components: { taoLoading, taoPage },
   data: function() {
     return {
       is_ready: false
