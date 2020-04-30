@@ -4,12 +4,25 @@
  * @Autor: lax
  * @Date: 2020-04-01 12:54:53
  * @LastEditors: lax
- * @LastEditTime: 2020-04-28 00:08:40
+ * @LastEditTime: 2020-04-30 08:39:42
  */
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
-  /* vue 断点 */
-  configureWebpack: {
-    devtool: "source-map"
+  configureWebpack: config => {
+    /* vue 断点 */
+    config.devtool = "source-map";
+    return {
+      output: {
+        filename: "js/[name].js?v=[hash:6]",
+        chunkFilename: "js/[name].js?v=[hash:6]"
+      },
+      plugins: [
+        new MiniCssExtractPlugin({
+          filename: `css/[name].css?v=[hash:6]`,
+          chunkFilename: `css/[name].css?v=[hash:6]`
+        })
+      ]
+    };
   },
   /* 设置build的引用文件路径 */
   publicPath: "./",
@@ -26,7 +39,7 @@ module.exports = {
       .use("url-loader")
       .loader("file-loader")
       .options({
-        name: "[name].[ext]?v=[hash:6]"
+        name: "img/[name].[ext]?v=[hash:6]"
       });
   }
 };

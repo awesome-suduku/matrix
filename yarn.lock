@@ -4754,10 +4754,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-fm93-vue-template@^1.3.0:
-  version "1.3.0"
-  resolved "https://verdaccio.server.1045fm.cn/fm93-vue-template/-/fm93-vue-template-1.3.0.tgz#0435ae324e842021a284e4778341737dfb931e2f"
-  integrity sha512-FTD1DlfwBFQOqv3PLBnB4CDN/Io+/wZK6CHGvbF/LghY/LyeLIdqPV25igxvQ63MMmMAwoK7wEWTBYor2DYcVg==
+fm93-vue-template@^1.4.1:
+  version "1.4.2"
+  resolved "https://verdaccio.server.1045fm.cn/fm93-vue-template/-/fm93-vue-template-1.4.2.tgz#6f646500509e8c1f3ce6f1966a96ec798cbdccd2"
+  integrity sha512-4XKOmSaL9eVTVhmQ7MrkqD5vO6RrwRdzL0jqGISuryEDz3y5iMyeBgFInDbVc0R/GCk5XoF6wNHxGC36CZF/uA==
   dependencies:
     core-js "^3.6.4"
     video.js "^7.7.5"
