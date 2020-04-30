@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-04-30 08:35:08
+ * @LastEditTime: 2020-04-30 15:11:36
  */
 import Vue from "vue";
 import App from "./App.vue";
@@ -17,8 +17,9 @@ import VueVideoPlayer from "vue-video-player";
 import "video.js/dist/video-js.css";
 import Tao from "fm93-vue-template";
 import "fm93-vue-template/lib/tao.css";
-import "fm93-vue-template/packages/assets/index";
-
+// eslint-disable-next-line
+// import assets from "fm93-vue-template/packages/assets/index";
+// console.log(assets);
 Vue.config.productionTip = false;
 Vue.use(Vant);
 Vue.use(VueVideoPlayer);
