@@ -4754,13 +4754,12 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-fm93-vue-template@^1.5.1:
-  version "1.5.1"
-  resolved "https://verdaccio.server.1045fm.cn/fm93-vue-template/-/fm93-vue-template-1.5.1.tgz#bcaa5aef5af9b4ae0ed71ce8b0734b7cdde28af9"
-  integrity sha512-wTmYIeMYLknKEmCAmJbmYuWeW8+MN0dVObcxZxMUMr8zewquXpOHmQ5AH2n7B2saXXh/CGZYGR1keOFdfKgvcA==
+fm93-vue-template@^1.6.4:
+  version "1.6.4"
+  resolved "https://verdaccio.server.1045fm.cn/fm93-vue-template/-/fm93-vue-template-1.6.4.tgz#e99b9f0cff26c5a8cf37e9dfed4d6e2c3475e8dc"
+  integrity sha512-CbdwHdJA70M0RKt333IOcHYg4bnb6A81Q5dSMr0JKfhMyQW/XFxTqOE3cIMGIb/Mr3BPANTLKoKNDKF5ciBzjQ==
   dependencies:
     core-js "^3.6.4"
-    mux.js "^5.5.4"
     video.js "^7.7.5"
     vue "^2.6.11"
 
@@ -7570,11 +7569,6 @@ mux.js@5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.5.1.tgz#5bd5d7b2e5e5560da8126928e93af3c532e08372"
   integrity sha512-5VmmjADBqS4++8pTI6poSRJ+chHdaoI4XErcQPM5w4QfwaDl+FQlSI0iOgWbYDn6CBCbDRKaSCcEiN2K5aHNGQ==
-
-mux.js@^5.5.4:
-  version "5.5.4"
-  resolved "https://verdaccio.server.1045fm.cn/mux.js/-/mux.js-5.5.4.tgz#5f3e6814fdcb2ba88f3ebad7b85f4c054e151609"
-  integrity sha512-0PQc0cGaESS9eN0LJHke2w7KHA2EpZNa5zd6cwcqx1Vl7PSXv1WRXQCiNXTBe05BRjnEmhMM1W3INvstaxx34Q==
 
 mz@^2.4.0:
   version "2.7.0"
