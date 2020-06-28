@@ -17,7 +17,6 @@ import Tao from "fm93-vue-template";
 import "fm93-vue-template/lib/tao.css";
 // eslint-disable-next-line
 // import assets from "fm93-vue-template/packages/assets/index";
-console.log(Tao);
 Vue.config.productionTip = false;
 Vue.use(Vant);
 Vue.use(Tao);

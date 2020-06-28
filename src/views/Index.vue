@@ -4,11 +4,11 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-04-30 20:01:42
+ * @LastEditTime: 2020-06-28 09:49:47
  -->
 <template>
   <tao-page>
-    <tao-loading v-if="!this.is_ready" :color="'pink'"></tao-loading>
+    <tao-loading v-if="!is_ready" :color="'pink'"></tao-loading>
     <tao-page v-show="false"></tao-page>
   </tao-page>
 </template>
@@ -23,11 +23,11 @@ export default {
     };
   },
   created: function() {
+    const self = this;
     new wxHandler({
-      server: "http://172.27.14.40:8001",
       debug: true,
       over: function() {
-        this.is_ready = true;
+        self.is_ready = true;
       }
     }).execute();
   }
