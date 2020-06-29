@@ -1,10 +1,14 @@
 /*
- * @Description:
+ * @Description: default main.js
  * @Version: 1.0.0
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-06-28 11:44:38
+ * @LastEditTime: 2020-06-29 20:09:36
+ */
+
+/**
+ * default import vue router store
  */
 import Vue from "vue";
 import App from "./App.vue";
@@ -24,6 +28,7 @@ import store from "./store";
 import Tao from "fm93-vue-template";
 import "fm93-vue-template/lib/tao.css";
 Vue.use(Tao);
+
 // eslint-disable-next-line
 Vue.config.productionTip = false;
 
