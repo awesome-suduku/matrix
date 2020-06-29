@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-04-01 12:54:53
  * @LastEditors: lax
- * @LastEditTime: 2020-04-30 20:17:00
+ * @LastEditTime: 2020-06-29 20:52:10
  */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
@@ -42,6 +42,6 @@ module.exports = {
       .options({
         name: "img/[name].[ext]?v=[hash:6]"
       });
-    config.resolve.alias.set("@", path.join(__dirname, "./packages"));
+    config.resolve.alias.set("@", path.join(__dirname, "./src"));
   }
 };

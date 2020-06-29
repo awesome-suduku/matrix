@@ -4,11 +4,11 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-06-28 09:58:56
+ * @LastEditTime: 2020-06-29 21:36:17
  -->
 <template>
   <tao-container>
-    <tao-music v-show="display" />
+    <tao-music v-show="display"></tao-music>
     <tao-loading v-if="!is_ready" :color="'pink'"></tao-loading>
     <tao-page v-show="false"></tao-page>
   </tao-container>
@@ -27,7 +27,7 @@ export default {
   created: function() {
     const self = this;
     new wxHandler({
-      debug: true,
+      debug: !self.env,
       over: function() {
         self.is_ready = true;
         self.display = true;

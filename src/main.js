@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-06-29 20:09:36
+ * @LastEditTime: 2020-06-29 20:51:09
  */
 
 /**
@@ -28,6 +28,10 @@ import store from "./store";
 import Tao from "fm93-vue-template";
 import "fm93-vue-template/lib/tao.css";
 Vue.use(Tao);
+
+// load mixin
+import mixin from "@/mixins/global.js";
+Vue.mixin(mixin);
 
 // eslint-disable-next-line
 Vue.config.productionTip = false;
