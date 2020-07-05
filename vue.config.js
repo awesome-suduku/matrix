@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-04-01 12:54:53
  * @LastEditors: lax
- * @LastEditTime: 2020-06-29 20:52:10
+ * @LastEditTime: 2020-07-05 16:10:04
  */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
@@ -26,7 +26,9 @@ module.exports = {
     };
   },
   /* 设置build的引用文件路径 */
-  publicPath: "/",
+  publicPath: "./",
+  /* 生产环境sourcemap 清除 */
+  productionSourceMap: false,
   /* 取消文件名hash值 */
   filenameHashing: false,
   /**

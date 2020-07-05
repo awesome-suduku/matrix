@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-04-07 20:10:59
+ * @LastEditTime: 2020-07-04 20:19:45
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -30,7 +30,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  // mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes
 });

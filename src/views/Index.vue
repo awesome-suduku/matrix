@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-04-07 14:34:37
  * @LastEditors: lax
- * @LastEditTime: 2020-06-29 21:36:17
+ * @LastEditTime: 2020-07-05 15:27:22
  -->
 <template>
   <tao-container>
@@ -27,7 +27,10 @@ export default {
   created: function() {
     const self = this;
     new wxHandler({
+      pro: self.env,
       debug: !self.env,
+      desc: "",
+      img: require("@/assets/img/wx/fm93_white.png"),
       over: function() {
         self.is_ready = true;
         self.display = true;
