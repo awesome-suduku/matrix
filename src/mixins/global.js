@@ -7,9 +7,9 @@
  * @LastEditTime: 2020-06-29 20:30:37
  */
 export default {
-  data: function() {
-    return {
-      env: process.env.NODE_ENV === "production"
-    };
-  }
+	data: function () {
+		return {
+			env: process.env.NODE_ENV === "production",
+		};
+	},
 };

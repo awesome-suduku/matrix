@@ -11,22 +11,22 @@ import Vuex from "vuex";
 
 const modules = {};
 const selects = require.context("./modules/", true, /\.js$/);
-selects.keys().forEach(select => {
-  modules[getName(select)] = selects(select).default;
-  console.log(modules);
+selects.keys().forEach((select) => {
+	modules[getName(select)] = selects(select).default;
+	console.log(modules);
 });
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules
+	state: {},
+	mutations: {},
+	actions: {},
+	modules,
 });
 
 function getName(str, is = true) {
-  const p = "./";
-  let name = str.slice(str.indexOf(p) + 2, str.indexOf(".js"));
-  if (is) name = name.toLowerCase();
-  return name;
+	const p = "./";
+	let name = str.slice(str.indexOf(p) + 2, str.indexOf(".js"));
+	if (is) name = name.toLowerCase();
+	return name;
 }
