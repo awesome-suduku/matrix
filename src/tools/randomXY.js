@@ -4,9 +4,9 @@
  * @Autor: lax
  * @Date: 2020-10-08 19:58:55
  * @LastEditors: lax
- * @LastEditTime: 2020-10-10 17:11:25
+ * @LastEditTime: 2020-10-12 11:27:37
  */
-module.exports = (() => {
+module.exports = () => {
 	// 宫格值
 	const valueList = [];
 	for (let i = 0; i < 11; i++) {
@@ -20,9 +20,19 @@ module.exports = (() => {
 			y: Math.floor(Math.random() * 9 + 1) - 1
 		});
 	}
-	const result = [[], [], [], [], [], [], [], [], []];
+	const result = [
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0]
+	];
 	numList.map((xy, i) => {
 		result[xy.x][xy.y] = valueList[i];
 	});
 	return result;
-})();
+};
