@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-10-08 19:31:35
  * @LastEditors: lax
- * @LastEditTime: 2020-10-12 17:19:47
+ * @LastEditTime: 2020-10-13 10:49:51
  */
 const Element = require("./Element.js");
 class Stage {
@@ -14,34 +14,31 @@ class Stage {
 		// 跳舞链盘
 		this.list = [];
 		this.__init();
-		// this.head = this.list[0][0];
+		this.head = this.list[0][0];
+		this.ans = [];
 	}
 	caculate() {}
 	__dancing() {
-		if (this.head.right == this.head) return true;
+		// 获取head.right
+		const next = this.head.right;
+		if (next == this.head) return true;
 
 		// 标记right
-		const tabs = this.list.filter(row => {
-			const el = row[this.right.y];
-			if (!el.sup && el.use) {
-				el.out();
-				return true;
-			}
-		});
-		if (this.right.down == this.right) return false;
-		// 暂存right序列一
-		// 标记序列一同行的其余元素的列首元素
-		// 递归
+		const nextTaps = this.__tap(next.y);
+		if (next.down == next) return false;
+
+		// 获取right第一序列
+		const nextFirst = this.next.down;
+
+		// 标记该第一序列同行其余元素的列首元素
+		const nextFirstTaps = this.__tapByRow(nextFirst);
+
+		// 得到子跳舞链盘
 		if (this.__dancing()) {
 			return true;
 		} else {
 			// 返回该元素同行的其余元素所在的列首元素
-			tabs.map(row => {
-				row.map(el => {
-					el.in();
-				});
-			});
-			return false;
+			this.__tapback(nextFirstTaps);
 		}
 	}
 	/**
@@ -99,13 +96,45 @@ class Stage {
 			});
 		});
 	}
-	__tap(right) {
-		return this.list.filter(row => {
-			const el = row[right.y];
-			if (!el.sup && el.use) {
-				el.out();
-				return true;
+	/**
+	 * 标记元素
+	 * @param {*} col
+	 */
+	__tap(col) {
+		return this.list.filter((row, y) => {
+			// 仅返回标记元素所在列其他元素的行集合中已使用的元素
+			if (col == y) {
+				return row.filter(el => {
+					if (!el.sup && el.use) {
+						el.out();
+						return true;
+					}
+				});
 			}
+		});
+	}
+	/**
+	 * 标记该元素所在行剩余元素的首列元素
+	 * @param {*} first
+	 */
+	__tapByRow(first) {
+		return this.list[first.x].reduce((el, next) => {
+			if (next.y != first.y) {
+				return el.concat(this.__tap(next.y));
+			} else {
+				return el;
+			}
+		}, {});
+	}
+	/**
+	 * 回标元素集合
+	 * @param {*} list
+	 */
+	__tapback(list) {
+		list.map(row => {
+			row.map(el => {
+				el.in();
+			});
 		});
 	}
 	/**
@@ -134,7 +163,7 @@ class Stage {
 		return y * 9 + el + 162;
 	}
 	/**
-	 * 规则：每工宫格必定包含1-9
+	 * 规则：每宫格必定包含1-9
 	 * @param {*} x
 	 * @param {*} y
 	 * @param {*} el
