@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-10-08 19:31:35
  * @LastEditors: lax
- * @LastEditTime: 2020-10-13 10:49:51
+ * @LastEditTime: 2020-10-14 09:46:31
  */
 const Element = require("./Element.js");
 class Stage {
@@ -17,29 +17,36 @@ class Stage {
 		this.head = this.list[0][0];
 		this.ans = [];
 	}
-	caculate() {}
+	caculate() {
+		this.__dancing();
+	}
 	__dancing() {
 		// 获取head.right
 		const next = this.head.right;
-		if (next == this.head) return true;
+		if (next.check(this.head)) return true;
 
 		// 标记right
 		const nextTaps = this.__tap(next.y);
-		if (next.down == next) return false;
+		if (next.check(next.down)) return false;
 
-		// 获取right第一序列
-		const nextFirst = this.next.down;
+		nextTaps.map(row => {
+			// 获取right第一序列
+			const nextFirst = row[0];
 
-		// 标记该第一序列同行其余元素的列首元素
-		const nextFirstTaps = this.__tapByRow(nextFirst);
+			// 标记该第一序列同行其余元素的列首元素
+			const nextFirstTaps = this.__tapByRow(nextFirst);
 
-		// 得到子跳舞链盘
-		if (this.__dancing()) {
-			return true;
-		} else {
-			// 返回该元素同行的其余元素所在的列首元素
-			this.__tapback(nextFirstTaps);
-		}
+			// 得到子跳舞链盘
+			if (this.__dancing()) {
+				return true;
+			} else {
+				// 返回该元素同行的其余元素所在的列首元素
+				this.__tapback(nextFirstTaps);
+				this.ans.push(nextFirst);
+			}
+		});
+		this.__tapback(nextTaps);
+		return false;
 	}
 	/**
 	 * 每个元素转换为元素对象引用自身周围

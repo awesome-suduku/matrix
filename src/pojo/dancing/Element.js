@@ -4,7 +4,7 @@
  * @Autor: lax
  * @Date: 2020-10-08 19:24:37
  * @LastEditors: lax
- * @LastEditTime: 2020-10-12 16:15:11
+ * @LastEditTime: 2020-10-14 09:37:03
  */
 class Element {
 	constructor(p = {}) {
@@ -36,7 +36,10 @@ class Element {
 	activate() {
 		this.value = 1;
 	}
-	link() {}
+	check(el) {
+		if (el.x == this.x && el.y == this.y) return true;
+		return false;
+	}
 }
 
 module.exports = Element;
