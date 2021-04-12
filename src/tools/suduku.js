@@ -1,12 +1,12 @@
 /*
  * @Description:
  * @Version: 1.0.0
- * @Autor: lax
+ * @Author: lax
  * @Date: 2020-09-12 23:36:28
  * @LastEditors: lax
- * @LastEditTime: 2020-09-22 23:32:12
+ * @LastEditTime: 2021-04-12 14:43:47
  */
-class Soduku {
+class Suduku {
 	create() {}
 }
-module.exports = Soduku;
+module.exports = Suduku;

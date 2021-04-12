@@ -1,10 +1,10 @@
 /*
  * @Description:
  * @Version: 1.0.0
- * @Autor: lax
+ * @Author: lax
  * @Date: 2020-10-08 19:24:37
  * @LastEditors: lax
- * @LastEditTime: 2020-10-14 09:37:03
+ * @LastEditTime: 2021-04-12 14:35:27
  */
 class Element {
 	constructor(p = {}) {

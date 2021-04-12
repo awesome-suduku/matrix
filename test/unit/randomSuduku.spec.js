@@ -1,16 +1,17 @@
 /*
  * @Description:
  * @Version: 1.0.0
- * @Autor: lax
+ * @Author: lax
  * @Date: 2020-10-10 17:07:52
  * @LastEditors: lax
- * @LastEditTime: 2020-10-12 14:50:33
+ * @LastEditTime: 2021-04-12 17:21:48
  */
 const randomXY = require("@/tools/randomXY.js");
-describe("random 11", () => {
+const {expect} = require('chai');
+describe("random base suduku", () => {
 	it("get new", () => {
 		const xy = randomXY();
-		logger.info(xy);
+		console.log(123)
 		expect(xy);
 	});
 });

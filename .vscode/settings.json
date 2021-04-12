@@ -1,3 +1,9 @@
 {
-    "terminal.integrated.scrollback": 10000
+    "path-autocomplete.pathMappings": {
+        "@": "${folder}/src/",
+    },
+    "terminal.integrated.scrollback": 10000,
+    "cSpell.words": [
+        "suduku"
+    ]
 }

@@ -1,10 +1,10 @@
 /*
  * @Description:
  * @Version: 1.0.0
- * @Autor: lax
+ * @Author: lax
  * @Date: 2020-09-12 23:38:02
  * @LastEditors: lax
- * @LastEditTime: 2020-09-22 23:30:24
+ * @LastEditTime: 2021-04-12 14:42:28
  */
 function Box(p = {}) {
 	// 宫块数值
