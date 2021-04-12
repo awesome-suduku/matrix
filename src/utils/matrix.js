@@ -4,10 +4,10 @@
  * @Author: lax
  * @Date: 2021-04-12 15:44:16
  * @LastEditors: lax
- * @LastEditTime: 2021-04-12 16:02:58
+ * @LastEditTime: 2021-04-12 20:25:48
  * @FilePath: \suduku\src\utils\matrix.js
  */
-const Element = require("./Element.js");
+const Element = require("@/pojo/dancing/Element.js");
 
 /**
  * 规则：每个宫格仅有一个数字
@@ -75,7 +75,7 @@ function getMatrixBySuduku(suduku){
 		return result;
 }
 
-module.export = {getMatrixBySuduku};
+module.exports = {getMatrixBySuduku};
 
 
 

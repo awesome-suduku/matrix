@@ -4,13 +4,13 @@
  * @Author: lax
  * @Date: 2020-10-08 19:31:35
  * @LastEditors: lax
- * @LastEditTime: 2021-04-12 16:04:21
+ * @LastEditTime: 2021-04-12 20:27:02
  */
 const {getMatrixBySuduku} = require("@/utils/matrix.js")
 class Stage {
-	constructor(xy) {
+	constructor(suduku) {
 		// 九宫格
-		this.xy = xy;
+		this.suduku = suduku;
 		// 跳舞链盘
 		this.list = [];
 		this.__init();
@@ -41,18 +41,18 @@ class Stage {
 				return true;
 			} else {
 				// 返回该元素同行的其余元素所在的列首元素
-				this.__tapback(nextFirstTaps);
+				this.__tapBack(nextFirstTaps);
 				this.ans.push(nextFirst);
 			}
 		});
-		this.__tapback(nextTaps);
+		this.__tapBack(nextTaps);
 		return false;
 	}
 	/**
 	 * 每个元素转换为元素对象引用自身周围
 	 */
 	__init() {
-		const dance = getMatrixBySuduku(this.xy);
+		const dance = getMatrixBySuduku(this.suduku);
 		dance.map((row, x) => {
 			return row.map((el, y, row) => {
 				el.right = row[y == row.length - 1 ? 0 : y + 1];

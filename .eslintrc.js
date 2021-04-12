@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2020-10-10 17:07:52
  * @LastEditors: lax
- * @LastEditTime: 2021-04-12 16:21:16
+ * @LastEditTime: 2021-04-12 19:56:25
  */
 module.exports = {
 	root: true,
@@ -27,7 +27,7 @@ module.exports = {
 		{
 			files: [
 				"**/__test__/*.{j,t}s?(x)",
-				"**/test/unit/**/*.spec.{j,t}s?(x)",
+				"**/test/unit/**/*.test.{j,t}s?(x)",
 			],
 			env: {
 				jest: true,
