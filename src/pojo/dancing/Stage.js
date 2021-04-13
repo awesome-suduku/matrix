@@ -4,23 +4,25 @@
  * @Author: lax
  * @Date: 2020-10-08 19:31:35
  * @LastEditors: lax
- * @LastEditTime: 2021-04-12 20:27:02
+ * @LastEditTime: 2021-04-13 15:39:28
  */
-const {getMatrixBySuduku} = require("@/utils/matrix.js")
+const { getMatrixBySuduku } = require("@/utils/matrix.js");
 class Stage {
 	constructor(suduku) {
 		// 九宫格
 		this.suduku = suduku;
 		// 跳舞链盘
-		this.list = [];
-		this.__init();
+		this.matrix = [];
+		this.init();
 		this.head = this.list[0][0];
 		this.ans = [];
 	}
+
 	calculate() {
-		this.__dancing();
+		this.dancing();
 	}
-	__dancing() {
+
+	dancing() {
 		// 获取head.right
 		const next = this.head.right;
 		if (next.check(this.head)) return true;
@@ -39,54 +41,43 @@ class Stage {
 			// 得到子跳舞链盘
 			if (this.__dancing()) {
 				return true;
-			} else {
-				// 返回该元素同行的其余元素所在的列首元素
-				this.__tapBack(nextFirstTaps);
-				this.ans.push(nextFirst);
 			}
+			// 返回该元素同行的其余元素所在的列首元素
+			this.__tapBack(nextFirstTaps);
+			this.ans.push(nextFirst);
 		});
 		this.__tapBack(nextTaps);
 		return false;
 	}
+
 	/**
 	 * 每个元素转换为元素对象引用自身周围
 	 */
-	__init() {
-		const dance = getMatrixBySuduku(this.suduku);
-		dance.map((row, x) => {
-			return row.map((el, y, row) => {
-				el.right = row[y == row.length - 1 ? 0 : y + 1];
-				el.left = row[y == 0 ? row.length - 1 : y - 1];
-				el.up = dance[x == 0 ? dance.length - 1 : x - 1][y];
-				el.down = dance[x == dance.length - 1 ? 0 : x + 1][y];
-				el.sup = x == 0 ? true : false;
-				el.use = el == 1 ? true : false;
-				el.name = x == 0 && y == 0 ? "head" : "el";
-				el.x = x;
-				el.y = y;
-			});
-		});
-		this.list = dance;
-		this.__clear();
+	init() {
+		const matrix = getMatrixBySuduku(this.suduku);
+		this.matrix = matrix;
+		this.clear();
 	}
+
 	/**
 	 * 清除所有空对象
 	 */
-	__clear() {
-		this.list.map(row => {
+	clear() {
+		this.matrix.map(row => {
 			row.map(el => {
 				if (el.sup && !el.use) el.out();
 			});
 		});
 	}
+
 	/**
 	 * 标记元素
 	 * @param {*} col
 	 */
-	__tap(col) {
-		return this.list.filter((row, y) => {
+	tap(col) {
+		return this.matrix.filter((row, y) => {
 			// 仅返回标记元素所在列其他元素的行集合中已使用的元素
-			if (col == y) {
+			if (col === y) {
 				return row.filter(el => {
 					if (!el.sup && el.use) {
 						el.out();
@@ -96,25 +87,26 @@ class Stage {
 			}
 		});
 	}
+
 	/**
 	 * 标记该元素所在行剩余元素的首列元素
 	 * @param {*} first
 	 */
-	__tapByRow(first) {
-		return this.list[first.x].reduce((el, next) => {
-			if (next.y != first.y) {
-				return el.concat(this.__tap(next.y));
-			} else {
-				return el;
+	tapByRow(first) {
+		return this.matrix[first.x].reduce((el, next) => {
+			if (next.y !== first.y) {
+				return el.concat(this.tap(next.y));
 			}
+			return el;
 		}, {});
 	}
+
 	/**
 	 * 回标元素集合
 	 * @param {*} list
 	 */
-	__tapBack(list) {
-		list.map(row => {
+	tapBack() {
+		this.list.map(row => {
 			row.map(el => {
 				el.in();
 			});

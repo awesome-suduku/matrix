@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2021-04-12 16:44:57
  * @LastEditors: lax
- * @LastEditTime: 2021-04-12 20:17:36
+ * @LastEditTime: 2021-04-13 10:09:22
  * @FilePath: \suduku\webpack.config.js
  */
 const path = require('path');
@@ -16,7 +16,8 @@ module.exports = {
     resolve: {
         // 设置别名
         alias: {
-            '@': resolve("src")
+            '@': resolve("src"),
+			"@test": resolve("test")
         }
     },
 	mode: process.env.NODE_ENV || 'development',

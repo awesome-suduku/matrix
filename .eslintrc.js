@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2020-10-10 17:07:52
  * @LastEditors: lax
- * @LastEditTime: 2021-04-12 19:56:25
+ * @LastEditTime: 2021-04-13 15:30:49
  */
 module.exports = {
 	root: true,
@@ -15,10 +15,16 @@ module.exports = {
         ecmaVersion: 2017,
         sourceType: 'module',
     },
-	extends: ["eslint:recommended"],
+	extends: ["airbnb-base/legacy","plugin:prettier/recommended"],
+	plugins:["prettier"],
 	rules: {
 		"no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
 		"no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+		"array-callback-return": "off",
+		"consistent-return": "off",
+		"no-plusplus": "off",
+		"func-names": "off",
+		"no-param-reassign": "off"
 	},
 	globals: {
 		logger: true,
