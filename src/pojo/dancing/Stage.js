@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2020-10-08 19:31:35
  * @LastEditors: lax
- * @LastEditTime: 2021-04-13 15:39:28
+ * @LastEditTime: 2021-04-13 17:14:53
  */
 const { getMatrixBySuduku } = require("@/utils/matrix.js");
 class Stage {
@@ -28,7 +28,7 @@ class Stage {
 		if (next.check(this.head)) return true;
 
 		// 标记right
-		const nextTaps = this.__tap(next.y);
+		const nextTaps = this.tap(next.y);
 		if (next.check(next.down)) return false;
 
 		nextTaps.map(row => {
@@ -36,17 +36,17 @@ class Stage {
 			const nextFirst = row[0];
 
 			// 标记该第一序列同行其余元素的列首元素
-			const nextFirstTaps = this.__tapByRow(nextFirst);
+			const nextFirstTaps = this.tapByRow(nextFirst);
 
 			// 得到子跳舞链盘
-			if (this.__dancing()) {
+			if (this.dancing()) {
 				return true;
 			}
 			// 返回该元素同行的其余元素所在的列首元素
-			this.__tapBack(nextFirstTaps);
+			this.tapBack(nextFirstTaps);
 			this.ans.push(nextFirst);
 		});
-		this.__tapBack(nextTaps);
+		this.tapBack(nextTaps);
 		return false;
 	}
 
