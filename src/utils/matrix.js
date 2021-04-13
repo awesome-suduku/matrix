@@ -4,13 +4,15 @@
  * @Author: lax
  * @Date: 2021-04-12 15:44:16
  * @LastEditors: lax
- * @LastEditTime: 2021-04-13 17:47:13
+ * @LastEditTime: 2021-04-13 23:47:04
  * @FilePath: \suduku\src\utils\matrix.js
  */
-// const Element = require("@/pojo/dancing/Element.js");
 
 /**
  * 规则：每个宫格仅有一个数字
+ * [0,0]...[0,8]
+ * ...
+ * [8,0]...[8,8]
  * @param {*} x
  * @param {*} y
  */
@@ -19,40 +21,47 @@ function getNumByEachBoxOnlyHaveOne(x, y) {
 }
 /**
  * 规则：每行必定包含1-9
+ * row0-num1...row0-num9
+ * ...
+ * row8-num1...row8-num9
  * @param {*} x
- * @param {*} y
- * @param {*} el
+ * @param {*} i
  */
-function getNumByEachRowMustHaveOneToNine(x, y) {
-	return x * 9 + y + 81;
+function getNumByEachRowMustHaveOneToNine(x, i) {
+	return x * 9 + i + 80;
 }
 /**
  * 规则：每排必定包含1-9
+ * col0-num1...col0-num9
+ * ...
+ * col8-num1...col8-num9
  * @param {*} y
- * @param {*} el
+ * @param {*} i
  */
-function getNumByEachColMustHaveOneToNine(x, y) {
-	return x * 9 + y + 162;
+function getNumByEachColMustHaveOneToNine(y, i) {
+	return y * 9 + i + 161;
 }
 /**
  * 规则：每宫格必定包含1-9
+ * palace0-num1...palace0-num9
+ * ...
+ * palace0-num1...palace0-num9
  * @param {*} x
  * @param {*} y
- * @param {*} el
+ * @param {*} i
  */
-function getNumByEachPalaceMustHaveOneToNine(x, y) {
-	// const palaceNum = Math.floor(x / 3) * 3 + Math.floor(y / 3) + 1;
-	return x * 9 + y + 243;
+function getNumByEachPalaceMustHaveOneToNine(x, y, i) {
+	const palace = Math.floor(x / 3) * 3 + Math.floor(y / 3);
+	return palace * 9 + i + 242;
 }
 
 function getRow(x, y, i) {
-	const row = new Array(325);
-	row.fill(0);
+	const row = new Array(324).fill(0);
 	row[getNumByEachBoxOnlyHaveOne(x, y)] = 1;
-	row[getNumByEachRowMustHaveOneToNine(x, y)] = 1;
-	row[getNumByEachColMustHaveOneToNine(x, y)] = 1;
-	row[getNumByEachPalaceMustHaveOneToNine(x, y)] = 1;
-	const result = { data: `${x}-${y}-${i}`, row };
+	row[getNumByEachRowMustHaveOneToNine(x, i)] = 1;
+	row[getNumByEachColMustHaveOneToNine(y, i)] = 1;
+	row[getNumByEachPalaceMustHaveOneToNine(x, y, i)] = 1;
+	const result = { data: `${x}-${y}-${i}`, x, y, i, row };
 	return result;
 }
 
@@ -73,25 +82,26 @@ function getRow(x, y, i) {
 // }
 
 /**
- * 九宫格转化为初步跳舞链核心盘，1代表有解
+ * 将数独转化为矩阵对象
  */
 function getMatrixBySuduku(suduku) {
-	const result = [];
-	suduku.map((row, x) => {
-		row.map((el, y) => {
-			const num = el ? 1 : 9;
-			/**
-			 * el有值=> 该格对应值可能性
-			 * el无值=> 该格对应1-9可能性集合
-			 */
-			for (let i = 1; i <= num; i++) {
-				const rule = getRow(x, y, i);
-				result.push(rule);
-			}
-		});
-	});
-	// matrixLink(result);
-	return result;
+	return suduku.reduce((next, row, x) => {
+		return next.concat(
+			row.reduce((acc, el, y) => {
+				// 已有值,对应唯一解
+				if (el) {
+					acc.push(getRow(x, y, el));
+					return acc;
+				}
+				// 值未知,列出全部解
+				return acc.concat(
+					new Array(9).fill({}).map((obj, i) => {
+						return getRow(x, y, i + 1);
+					})
+				);
+			}, [])
+		);
+	}, []);
 }
 
 module.exports = { getMatrixBySuduku };
