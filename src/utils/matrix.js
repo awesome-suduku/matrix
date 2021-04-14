@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2021-04-12 15:44:16
  * @LastEditors: lax
- * @LastEditTime: 2021-04-13 23:47:04
+ * @LastEditTime: 2021-04-14 12:35:58
  * @FilePath: \suduku\src\utils\matrix.js
  */
 
@@ -55,48 +55,39 @@ function getNumByEachPalaceMustHaveOneToNine(x, y, i) {
 	return palace * 9 + i + 242;
 }
 
-function getRow(x, y, i) {
+function getRow(x, y, i, callback) {
 	const row = new Array(324).fill(0);
 	row[getNumByEachBoxOnlyHaveOne(x, y)] = 1;
 	row[getNumByEachRowMustHaveOneToNine(x, i)] = 1;
 	row[getNumByEachColMustHaveOneToNine(y, i)] = 1;
 	row[getNumByEachPalaceMustHaveOneToNine(x, y, i)] = 1;
-	const result = { data: `${x}-${y}-${i}`, x, y, i, row };
-	return result;
+	return callback(x, y, i, row);
 }
 
-// function matrixLink(matrix) {
-// 	matrix.map((rule, x) => {
-// 		return rule.row.map((el, y, row) => {
-// 			el.right = row[y === row.length - 1 ? 0 : y + 1];
-// 			el.left = row[y === 0 ? row.length - 1 : y - 1];
-// 			el.up = matrix[x === 0 ? matrix.length - 1 : x - 1][y];
-// 			el.down = matrix[x === matrix.length - 1 ? 0 : x + 1][y];
-// 			el.sup = x === 0;
-// 			el.use = el === 1;
-// 			el.name = x === 0 && y === 0 ? "head" : "el";
-// 			el.x = row.x;
-// 			el.y = row.y;
-// 		});
-// 	});
-// }
+function DEFAULT_CALLBACK(x, y, i, row) {
+	return { data: `${x}-${y}-${i}`, x, y, i, row };
+}
 
 /**
- * 将数独转化为矩阵对象
+ * @function getMatrixBySuduku
+ * @description 将数独转化为矩阵对象
+ * @param {Array} suduku 二维数组或类数组
+ * @param {Function} callback 返回的值
+ * @returns
  */
-function getMatrixBySuduku(suduku) {
+function getMatrixBySuduku(suduku, callback = DEFAULT_CALLBACK) {
 	return suduku.reduce((next, row, x) => {
 		return next.concat(
 			row.reduce((acc, el, y) => {
 				// 已有值,对应唯一解
 				if (el) {
-					acc.push(getRow(x, y, el));
+					acc.push(getRow(x, y, el, callback));
 					return acc;
 				}
 				// 值未知,列出全部解
 				return acc.concat(
 					new Array(9).fill({}).map((obj, i) => {
-						return getRow(x, y, i + 1);
+						return getRow(x, y, i + 1, callback);
 					})
 				);
 			}, [])
