@@ -1,14 +1,12 @@
 {
-  "name": "suduku",
+  "name": "matrix",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "test": "mochapack \"test/**/**.test.js\""
   },
   "dependencies": {
-    "consola": "^2.15.0",
-    "dancing-links": "^2.1.1"
-
+    "consola": "^2.15.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",
@@ -19,6 +17,7 @@
     "mocha": "^8.3.2",
     "mochapack": "^2.0.6",
     "prettier": "^1.19.1",
-    "webpack": "^4.46.0"
+    "webpack": "^4.46.0",
+    "dancing-links": "^2.1.1"
   }
 }
