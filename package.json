@@ -1,10 +1,11 @@
 {
   "name": "matrix",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "test": "mochapack \"test/**/**.test.js\""
   },
+  "main": "/src/utils/matrix.js",
   "dependencies": {
     "consola": "^2.15.0"
   },
